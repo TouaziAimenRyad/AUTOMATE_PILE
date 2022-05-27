@@ -21,7 +21,7 @@ rule next_token=parse
 |"stack symbols" {STACK_SYMBOLS}
 |"states" {STATES}
 |"initial state" {INITIAL_STATE}
-|"initial stack" {INITIAL_STACK}
+|"initial stack symbol" {INITIAL_STACK}
 |"transitions" {TRANSITIONS}
 |"(" {PARAG}
 |")" {PARAD}

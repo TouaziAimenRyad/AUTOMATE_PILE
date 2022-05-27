@@ -1,8 +1,10 @@
 {
 open Lexing
 open Parser
+ 
+
 }
-let space=[' ''\t']
+let space=[ ' ' '\t' '\n' ]
 let lettre=['0'-'9''a'-'z''A'-'Z']
 let symb_pile=['A'-'Z']
 let symb_input=['a'-'z']
@@ -21,6 +23,6 @@ rule next_token=parse
 |";"{PVIR}
 |":"{DP}
 |lettre as l {LETTRE l } 
-|space* {next_token lexbuf}
+|space {next_token lexbuf}
 |eof {EOF}
 |_ {failwith "unexpected token"}

@@ -6,9 +6,6 @@ open Parser
 }
 let space=[ ' ' '\t' '\n' ]
 let lettre=['0'-'9''a'-'z''A'-'Z']
-let symb_pile=['A'-'Z']
-let symb_input=['a'-'z']
-let state=['0'-'9']
 
 rule next_token=parse
 |"input symbols"{ INPUT_SYMBOLS}
@@ -22,6 +19,7 @@ rule next_token=parse
 |"," {VIR}
 |";"{PVIR}
 |":"{DP}
+|lettre lettre+ {failwith "unexpected token"}
 |lettre as l {LETTRE l } 
 |space {next_token lexbuf}
 |eof {EOF}
